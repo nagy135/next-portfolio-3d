@@ -1,5 +1,11 @@
-import ReactPlayer from "react-player"
+import dynamic from 'next/dynamic';
+import { useState } from 'react';
+
+const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
 
 export default () => {
-  return <ReactPlayer url={"localhost:3000/api/video/1"} />
+  const [playing, setPlaying] = useState(false);
+  return <>
+    <ReactPlayer url={"/api/video?id=1"} loop={true} playing={playing} controls={true} />
+  </>;
 }
