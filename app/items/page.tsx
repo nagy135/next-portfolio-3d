@@ -1,10 +1,10 @@
 import Player from "../components/Player";
 
-const Page = () => {
-  const x = 5;
+const Page = async () => {
+  const x = 1;
   return (
     <>
-      <Player x={x} />
+      <Player id={x} />
     </>
   );
 };

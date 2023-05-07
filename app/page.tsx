@@ -1,6 +1,5 @@
 import path from "path";
 import fs from "fs";
-import Player from "./components/Player";
 
 async function getData() {
   const itemFolder = path.join(process.cwd(), "public", "items");
@@ -15,7 +14,6 @@ export default async function Page() {
   return (
     <main>
       <pre>{JSON.stringify(data)}</pre>
-      <Player x={4} />
     </main>
   );
 }

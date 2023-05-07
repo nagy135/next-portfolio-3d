@@ -1,13 +1,22 @@
-"use_client";
+"use client";
 
-import { useState } from "react";
+interface IPlayer {
+  id: number;
+}
 
-const Player = ({ x }: { x: number }) => {
-  const [playing] = useState(false);
-  return (
+import dynamic from "next/dynamic";
+const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
+
+const Player = ({ id }: IPlayer) => {
+  return id ? (
     <>
-      <div> {playing ? x : "lol"} </div>
+      <ReactPlayer
+        url={`/items/${id}/video.mp4`}
+        loop={true}
+        playing
+        controls={true}
+      />
     </>
-  );
+  ) : null;
 };
 export default Player;
